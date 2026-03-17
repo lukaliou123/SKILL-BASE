@@ -8,8 +8,8 @@ metadata: { "openclaw": { "emoji": "📷", "requires": { "bins": ["ffmpeg", "pyt
 
 | 项目 | 值 |
 |---|---|
-| IP | 172.16.200.9（原 172.16.201.18，2026-03-17 变更）|
-| 账号 | admin / LongLiveTheMech1! |
+| IP | YOUR_CAMERA_IP（原 172.16.201.18，2026-03-17 变更）|
+| 账号 | admin / YOUR_CAMERA_PASSWORD |
 | RTSP | 554 端口，stream1=4K，stream2=640×360 |
 | ONVIF | 2020 端口 |
 
@@ -34,7 +34,7 @@ bash /Users/mechforge1/.openclaw/workspace/skills/tplink-ipc-camera/scripts/grab
 ```bash
 export PATH="/opt/homebrew/bin:/usr/sbin:/usr/bin:/bin:/sbin:$PATH"
 /opt/homebrew/bin/ffmpeg -loglevel error -rtsp_transport tcp \
-  -i "rtsp://admin:LongLiveTheMech1!@172.16.200.9:554/stream1" \
+  -i "rtsp://admin:YOUR_PASSWORD@YOUR_CAMERA_IP:554/stream1" \
   -frames:v 1 -vf "hflip,vflip" -update 1 /tmp/cam.jpg -y
 ```
 </details>
@@ -79,7 +79,7 @@ bash /Users/mechforge1/.openclaw/workspace/skills/tplink-ipc-camera/scripts/grab
 # ⚠️ 导航时不要用 grab_frame.sh 的压缩版，用 4K 原图：
 export PATH="/opt/homebrew/bin:/usr/sbin:/usr/bin:/bin:/sbin:$PATH"
 /opt/homebrew/bin/ffmpeg -loglevel error -rtsp_transport tcp \
-  -i "rtsp://admin:LongLiveTheMech1!@172.16.200.9:554/stream1" \
+  -i "rtsp://admin:YOUR_PASSWORD@YOUR_CAMERA_IP:554/stream1" \
   -frames:v 1 -vf "hflip,vflip" -update 1 /tmp/cam_4k.jpg -y
 ```
 
@@ -96,7 +96,7 @@ export PATH="/opt/homebrew/bin:/usr/sbin:/usr/bin:/bin:/sbin:$PATH"
 ```bash
 export PATH="/opt/homebrew/bin:/usr/sbin:/usr/bin:/bin:/sbin:$PATH"
 /opt/homebrew/bin/ffmpeg -loglevel error -rtsp_transport tcp \
-  -i "rtsp://admin:LongLiveTheMech1!@172.16.200.9:554/stream1" \
+  -i "rtsp://admin:YOUR_PASSWORD@YOUR_CAMERA_IP:554/stream1" \
   -frames:v 1 -vf "hflip,vflip" -update 1 /tmp/cam_4k.jpg -y
 ```
 

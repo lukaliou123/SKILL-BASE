@@ -11,7 +11,7 @@ analyze_frame.py - 用 OpenRouter gemini-3-flash-preview 分析摄像头帧
 import base64, sys, json
 import urllib.request
 
-OR_KEY = "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"
+OR_KEY = "YOUR_OPENROUTER_API_KEY"
 MODEL  = "google/gemini-3-flash-preview"
 
 def analyze(image_path: str, prompt: str) -> str:

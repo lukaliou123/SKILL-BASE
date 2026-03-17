@@ -13,7 +13,7 @@
 
 export PATH="/opt/homebrew/bin:/usr/sbin:/usr/bin:/bin:/sbin:$PATH"
 
-RTSP_URL="rtsp://admin:LongLiveTheMech1!@172.16.200.9:554/stream1"
+RTSP_URL="rtsp://admin:YOUR_PASSWORD@YOUR_CAMERA_IP:554/stream1"
 OUTPUT="${1:-/tmp/cam_frame.jpg}"
 TMP_RAW="/tmp/cam_raw_$$.jpg"
 
