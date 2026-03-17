@@ -1,0 +1,39 @@
+{
+  "_comment": "miniHexa action mapping for BLERobot",
+  "actions": {
+    "逆时针扭动": {"type": "builtin", "id": 1, "desc": "机体逆时针扭动，得意/霸气"},
+    "顺时针扭动": {"type": "builtin", "id": 2, "desc": "机体顺时针扭动，生气/烦躁"},
+    "唤醒": {"type": "builtin", "id": 3, "desc": "唤醒动作"},
+    "唤醒奔跑": {"type": "builtin", "id": 4, "desc": "兴奋地摇摆后奔跑"},
+    "撒娇": {"type": "builtin", "id": 5, "desc": "俯仰摇摆，卖萌撒娇"},
+    "越障": {"type": "builtin", "id": 6, "desc": "越过障碍"},
+    "战斗1": {"type": "builtin", "id": 7, "desc": "左腿战斗姿态"},
+    "战斗2": {"type": "builtin", "id": 8, "desc": "右腿战斗姿态，愤怒/出头"},
+    "左脚前踢": {"type": "builtin", "id": 9, "desc": "左脚往前踢球"},
+    "左脚右踢": {"type": "builtin", "id": 10, "desc": "左脚往右踢球"},
+    "右脚前踢": {"type": "builtin", "id": 11, "desc": "右脚往前踢球"},
+    "右脚左踢": {"type": "builtin", "id": 12, "desc": "右脚往左踢球"},
+    "推门": {"type": "builtin", "id": 13, "desc": "前腿推门动作"},
+    "挥手": {"type": "builtin", "id": 14, "desc": "挥手打招呼"}
+  },
+  "movement": {
+    "前进": {"type": "move", "cmd": "C|0|30|0&", "desc": "向前走（持续到发停止）"},
+    "后退": {"type": "move", "cmd": "C|0|-30|0&", "desc": "向后走"},
+    "左移": {"type": "move", "cmd": "C|-30|0|0&", "desc": "向左平移"},
+    "右移": {"type": "move", "cmd": "C|30|0|0&", "desc": "向右平移"},
+    "左转": {"type": "move", "cmd": "C|0|0|1&", "desc": "原地左转"},
+    "右转": {"type": "move", "cmd": "C|0|0|2&", "desc": "原地右转"},
+    "停止": {"type": "move", "cmd": "C|0|0|0&", "desc": "停止移动"},
+    "复位": {"type": "move", "cmd": "O&", "desc": "回到站立姿态"}
+  },
+  "emotion_hints": {
+    "打招呼/你好/初次见面": "挥手",
+    "高兴/开心/兴奋": "唤醒奔跑",
+    "被欺负/委屈/受气": "战斗2",
+    "生气/愤怒/烦躁": "顺时针扭动",
+    "得意/霸气/胜利": "逆时针扭动",
+    "可爱/萌萌的/撒娇": "撒娇",
+    "再见/拜拜": "挥手",
+    "加油/支持": "战斗1"
+  }
+}
