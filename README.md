@@ -1,70 +1,43 @@
 # SKILL-BASE
 
-`SKILL-BASE` is a reusable Cursor skill package for controlling the miniHexa ESP32 robot over BLE.
+A collection of openclaw skills for physical device control and AI agent integration.
 
-It includes:
-- a ready-to-run control script (`BLERobot`)
-- action/movement mapping data
-- skill instructions for LLM-driven interaction
+## Skills
 
-## Repository Structure
+| Skill | Description |
+|-------|-------------|
+| [`minihexa-robot`](./minihexa-robot/) | Direct BLE control of the miniHexa 6-legged ESP32 robot — for the `robot` agent |
+| [`tplink-ipc-camera`](./tplink-ipc-camera/) | Grab and analyze frames from TP-Link IPC camera |
+| [`call-robot`](./call-robot/) | A2A caller guide — how other agents delegate tasks to the `robot` agent |
 
-```text
+## Structure
+
+```
 SKILL-BASE/
-├── SKILL.md
-├── scripts/
-│   └── ble_robot.py
-└── references/
-    └── actions_map.json
+├── minihexa-robot/        # Robot BLE control (used by robot agent directly)
+│   ├── scripts/
+│   │   └── ble_robot.py
+│   ├── references/
+│   │   ├── actions_map.json
+│   │   └── room_map.md
+│   └── SKILL.md
+├── tplink-ipc-camera/     # Camera integration
+│   ├── scripts/
+│   │   ├── grab_frame.sh
+│   │   └── analyze_frame.py
+│   └── SKILL.md
+└── call-robot/            # A2A interface guide for callers (e.g. main agent)
+    └── SKILL.md
 ```
 
-## Features
+## Usage
 
-- Trigger all 14 built-in action groups (`K|1|id&`)
-- Move robot with direction commands (`C|vx|vy|rot&`)
-- Auto-stop when obstacle is detected (distance notify over BLE)
-- Support emotion-to-action hints for conversational AI
+### For the `robot` agent
+Install `minihexa-robot` — it provides direct BLE hardware control.
 
-## Requirements
-
-- Python 3.10+
-- `bleak`
-
-Install:
-
+### For other agents (main, etc.)
+Install `call-robot` — it teaches you how to delegate tasks to the `robot` agent via:
 ```bash
-pip install bleak
+openclaw agent --agent robot --message "ACTION:挥手"
 ```
-
-## Quick Start
-
-```python
-import asyncio
-from scripts.ble_robot import BLERobot
-
-async def main():
-    async with BLERobot() as robot:
-        await robot.play("挥手")
-        await robot.move("前进", duration_s=3)
-        print("distance:", robot.distance_mm)
-
-asyncio.run(main())
-```
-
-Run interactive mode:
-
-```bash
-python scripts/ble_robot.py
-```
-
-## Notes
-
-- BLE device name: `miniHexa`
-- Write UUID: `0000ffe1-0000-1000-8000-00805f9b34fb`
-- Notify UUID: `0000ffe2-0000-1000-8000-00805f9b34fb`
-- Forward movement uses `vy` axis: `C|0|30|0&`
-
-## Safety / Scope
-
-- This repo contains no API keys, secrets, tokens, or private credentials.
-- It only contains robot-control logic, mappings, and documentation.
+No BLE knowledge needed.
