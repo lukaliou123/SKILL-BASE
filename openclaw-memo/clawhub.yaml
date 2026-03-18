@@ -1,0 +1,58 @@
+name: openclaw-memo
+display_name: OpenClaw Memo
+version: 0.4.0
+description: >
+  Personal memo assistant — captures fragmented thoughts, classifies them
+  (待办/待查/想法/观察/作息), enriches research items with web search,
+  generates structured digests, and executes confirmed tasks.
+  Supports local, Feishu, Notion, and Apple Notes storage.
+author: Jaydon Chen
+license: MIT
+
+tags:
+  - memo
+  - productivity
+  - capture
+  - digest
+  - feishu
+  - notion
+  - notes
+  - cron
+  - companion
+  - chinese
+
+category: productivity
+
+requirements:
+  - python3
+
+env_vars:
+  - OPENCLAW_MEMO_STORAGE_TARGET
+  - OPENCLAW_MEMO_TAVILY_API_KEY
+  - OPENCLAW_MEMO_FEISHU_APP_ID
+  - OPENCLAW_MEMO_FEISHU_APP_SECRET
+  - OPENCLAW_MEMO_FEISHU_DOC_TOKEN
+  - OPENCLAW_MEMO_FEISHU_CHAT_ID
+  - OPENCLAW_MEMO_NOTION_API_KEY
+  - OPENCLAW_MEMO_NOTION_DATABASE_ID
+
+entry_point: SKILL.md
+
+changelog: |
+  v0.4.0:
+  - Rewrote SKILL.md as agent behavioral guide (not code documentation)
+  - Added capture decision tree with disambiguation rules
+  - Added companion behavior specs (pattern recognition, reminders, briefings)
+  - Added A2A inter-agent communication protocol
+  - Added action registry pattern to executor with audit logging
+  - Expanded category recognition patterns
+  - Added clawhub.yaml for ClaWHub publishing
+  v0.3.0:
+  - Added Tavily search enrichment
+  - Added Feishu/Notion/Apple Notes storage adapters
+  - Added execution module with dry-run
+  - Added Feishu IM digest notifications
+  v0.2.0:
+  - Basic capture and classification
+  - Local digest generation
+  - Processed item marking

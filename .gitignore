@@ -1,1 +1,5 @@
 config.env
+*.pyc
+__pycache__/
+audit.md
+a2a-log.md
